@@ -56,13 +56,12 @@ func main() {
 
 				//if the percent change is greater than 30%, catch the fish
 				delta := lastRMax - rMax
-				change := math.Abs(float64(delta)) / float64(lastRMax)
-				if change * 100 > 35 {
+				change := float64(delta) / float64(lastRMax)
+				if change * 100 > 30 {
 					rightClick()
 					fishing = false
-				} else {
-					lastRMax = rMax
 				}
+				lastRMax = rMax
 				//fmt.Printf("Change: %.1f\n", change * 100)
 			}
 			if fishing {
